@@ -1,9 +1,3 @@
-# Vue Standard Template
-
-💚 **[Live Preview](https://vue-scaffa.vercel.app)**
-
-A comprehensive Vue.js starter template with modern development tools, beautiful UI components, and best practices built-in.
-
 ## ✨ Features
 
 - 🚀 **Vue 3** with TypeScript for type-safe development
