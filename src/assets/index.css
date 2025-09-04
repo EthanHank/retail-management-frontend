@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import 'tailwindcss';
+
+@custom-variant dark (&:is(.dark *));
+@plugin "tailwindcss-animate";
+@theme {
+  --font-title: 'Fira Code', monospace;
+  --font-display: 'Work Sans', sans-serif;
+}
+
+body {
+  @apply font-display;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-title font-semibold text-xl;
+}
+
+/* This block tells Tailwind how to create classes like `bg-background` from our variables */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+:root {
+  --background: #f1f5f9; /* light */
+  --foreground: #1e293b; /* dark */
+  --card: #ffffff;
+  --card-foreground: #1e293b; /* dark */
+  --popover: #ffffff;
+  --popover-foreground: #1e293b; /* dark */
+  --primary: #4ade80; /* primary */
+  --primary-foreground: #1e293b; /* dark */
+  --secondary: #e2e8f0;
+  --secondary-foreground: #1e293b;
+  --muted: #e2e8f0;
+  --muted-foreground: #64748b; /* grey */
+  --accent: #e2e8f0;
+  --accent-foreground: #1e293b;
+  --destructive: #ef4444;
+  --destructive-foreground: #f1f5f9;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #4ade80; /* primary */
+  --radius: 0.5rem;
+  --sidebar-width: 250px;
+}
+
+.dark {
+  --background: #1e293b; /* dark */
+  --foreground: #f1f5f9; /* light */
+  --card: #334155; /* dark-alt */
+  --card-foreground: #f1f5f9; /* light */
+  --popover: #334155; /* dark-alt */
+  --popover-foreground: #f1f5f9; /* light */
+  --primary: #4ade80; /* primary */
+  --primary-foreground: #1e293b; /* dark */
+  --secondary: #334155;
+  --secondary-foreground: #f1f5f9;
+  --muted: #334155;
+  --muted-foreground: #64748b; /* grey */
+  --accent: #334155;
+  --accent-foreground: #f1f5f9;
+  --destructive: #ef4444;
+  --destructive-foreground: #f1f5f9;
+  --border: #475569;
+  --input: #475569;
+  --ring: #4ade80; /* primary */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: 'cv03', 'cv04', 'cv11';
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: var(--radius);
+}
