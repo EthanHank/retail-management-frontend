@@ -37,8 +37,8 @@ const df = new DateFormatter('en-US', {
 const date = ref<DateRange>()
 
 const filters = reactive({
-  PageNumber: page.value,
-  PageSize: pageSize.value,
+  PageNumber: page,
+  PageSize: pageSize,
   startDate: undefined as string | undefined,
   endDate: undefined as string | undefined
 })
@@ -65,9 +65,7 @@ const isLastPage = computed(() => {
 });
 
 watch(page, async (newPage) => {
-  filters.PageNumber = newPage
   router.push({ query: { ...route.query, page: newPage } })
-  await refetch()
 })
 
 const formatDate = (dateValue: DateValue) => {

@@ -4,5 +4,6 @@ export type Dashboard = {
   totalSales: number
   totalRevenue: number
   totalProfit: number
+  totalQtySold: number
 }
 

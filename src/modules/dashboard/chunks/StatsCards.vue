@@ -30,7 +30,7 @@
       </CardContent>
     </Card>
   </div>
-  <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-2">
+  <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
     <Card>
       <CardHeader class="flex flex-row items-center justify-between space-y-0 pb-2">
         <CardTitle class="text-sm font-medium">Total Profit</CardTitle>
@@ -50,13 +50,23 @@
         <div class="text-2xl font-medium">{{ dashboardData?.totalRevenue.toLocaleString() }} Ks</div>
       </CardContent>
     </Card>
+
+    <Card>
+      <CardHeader class="flex flex-row items-center justify-between space-y-0 pb-2">
+        <CardTitle class="text-sm font-medium">Total Qty Sold</CardTitle>
+        <PackageCheck class="h-7 w-7 text-cyan-600" />
+      </CardHeader>
+      <CardContent>
+        <div class="text-2xl font-medium">{{ dashboardData?.totalQtySold.toLocaleString() }}</div>
+      </CardContent>
+    </Card>
   </div>
 </template>
 
 <script setup lang="ts">
 import api from '@/api'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Package, Users, CreditCard, Banknote, BanknoteArrowUp } from 'lucide-vue-next'
+import { Package, Users, CreditCard, Banknote, BanknoteArrowUp, PackageCheck } from 'lucide-vue-next'
 
 const { data: dashboardData } = api.dashboard.getDashboard.useQuery()
 </script>

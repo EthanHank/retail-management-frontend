@@ -90,8 +90,8 @@ const page = ref(parseInt(route.query.page as string) || 1)
 const pageSize = ref(8)
 
 const { data, isLoading, isError, refetch } = api.products.getProducts.useQuery({
-  PageNumber: page.value,
-  PageSize: pageSize.value,
+  PageNumber: page,
+  PageSize: pageSize,
   productName: ''
 })
 
@@ -103,7 +103,6 @@ const isLastPage = computed(() => {
 
 watch(page, async (newPage) => {
   router.push({ query: { ...route.query, page: newPage } })
-  await refetch()
 })
 
 const { mutate: createProduct, isPending: isCreating } = api.products.createProduct.useMutation()
